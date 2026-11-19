@@ -1,5 +1,1 @@
-[
-  { "file": "1-checklist.jpg", "path": "/", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "2-silver.jpg", "path": "/", "grade": "silver", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "3-bronze.jpg", "path": "/", "grade": "bronze", "scroll": 1400, "viewport": { "width": 1280, "height": 800 } }
-]
+[{"file":"1-cover.jpg","notes":"Checklist with demo progress (12 of 55), filters, spoiler toggle and export/import; guides with official names, descriptions, grades and sources.","path":"/?demo=1","scroll":"#checklist","viewport":{"height":800,"width":1280}},{"file":"2-roadmap.jpg","notes":"The five-step roadmap to the platinum with times and what each step covers.","path":"/?demo=1","scroll":"#roadmap","viewport":{"height":800,"width":1280}},{"file":"3-spoiler.jpg","notes":"Spoiler-safe mode on: un-earned hidden story trophies masked as 'Hidden trophy', earned ones revealed.","path":"/?demo=1&spoiler=1","scroll":"#trophy-4","viewport":{"height":800,"width":1280}},{"file":"4-missable.jpg","notes":"Missable filter active: the one possibly missable trophy, Positive Mental Attitude, with its guide and sources, plus the sources footer.","path":"/?demo=1&filter=missable","scroll":"#checklist","viewport":{"height":800,"width":1280}}]
