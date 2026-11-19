@@ -3,23 +3,110 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>Leonida Trophy Guide — GTA VI (PS5)</title>
+<meta name="description" content="Offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: official names, descriptions and grades, a roadmap to the platinum, missable flags, and cited guides for every trophy.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="masthead">
+  <div>
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; 55 trophies</p>
+    <h1>Leonida Trophy Guide</h1>
+    <p class="lede">Every trophy with its official name, description and grade, a guide in our own words with its sources beside it, and a tracker that remembers what you have earned. Works fully offline — no network, no account, nothing leaves your browser.</p>
+  </div>
+  <div class="progress-card" id="progressCard">
+    <div class="big-number"><span id="earnedCount">0</span><span class="of"> / 55</span></div>
+    <div class="bar"><div class="bar-fill" id="barFill" style="width: 0%"></div></div>
+    <p id="progressText">0 of 55 earned</p>
+    <p class="grade-line" id="gradeLine"></p>
+    <p class="estimate">Platinum: about 200 hours, difficulty 4/10 — PowerPyx</p>
+  </div>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+
+<nav class="views" aria-label="Sections">
+  <a href="#roadmap">Roadmap to the platinum</a>
+  <a href="#missables">Missables</a>
+  <a href="#checklist">Checklist</a>
+  <a href="#sources">Sources &amp; notes</a>
+</nav>
+
+<section class="roadmap" id="roadmap" aria-label="Roadmap to the platinum">
+  <h2>Roadmap to the platinum</h2>
+  <p class="roadmap-intro">One playthrough is enough. There is no mission replay and no New Game+, so keep a manual save at the start of every chapter and one before the final mission (PowerPyx). Cheats disable trophies and saving — keep trophy sessions cheat-free (PowerPyx, GTABase).</p>
+  <ol class="steps">
+    <li>
+      <h3>Step 1 — Before you start &amp; Chapter 1</h3>
+      <p>Do Lucia&rsquo;s balcony meditation at Jason&rsquo;s house in Chapter 1: it is the first meditation spot for <strong>Positive Mental Attitude</strong>, the one trophy that may be missable, and it is gone after the chapter (PowerPyx). Scan vehicles and study animals as you travel — the 100% checklist counts them later.</p>
+      <p class="step-trophies">Covers: the opening story trophies, Baited My Tackle, Positive Mental Attitude</p>
+    </li>
+    <li>
+      <h3>Step 2 — Play the story, Chapters 1–5 <span class="time">60–80 hours</span></h3>
+      <p>Finish all five chapters and the final mission. Take optional missions as they appear — the bank vaults open with an optional Chapter 4 mission — and start the stranger strands as they unlock. All 12 story trophies unlock automatically and cannot be missed (PowerPyx).</p>
+      <p class="step-trophies">Covers: 12 story trophies + the final-mission gold</p>
+    </li>
+    <li>
+      <h3>Step 3 — Strangers &amp; side quests <span class="time">about 10 hours</span></h3>
+      <p>Finish the mission strands for strangers. Eight counting strands earn <strong>Strangers &amp; Freaks</strong> — Kirk, Kyle, Yago and Pilot Pete count; Moses, Tyrone, Yasmani, Andy and Billy do not (GTA Zone). The five character strands (Andy, Kenton, Billy, Randy, Tyrone) each carry their own trophy, and Bret&rsquo;s hunting quests are Jason-only.</p>
+      <p class="step-trophies">Covers: Strangers &amp; Freaks, the five character-strand trophies, Fair Game</p>
+    </li>
+    <li>
+      <h3>Step 4 — After the credits: the 100% checklist <span class="time">about 100 hours</span></h3>
+      <p>Open the checklist at Progress &rarr; Stats &rarr; 100% Completion. Everything you did during the story already counts and nothing on it is missable (GTABase). It wants 70 of 80 challenges, 300 stunts, all 42 shooting-range golds, all 42 drone races, 8 bank vaults, all 39 illegal operations, 200 of 277 vehicles, 100 of 255 animals and 50 of 66 weapons (PowerPyx). Most of it falls out of the other trophies.</p>
+      <p class="step-trophies">Covers: A Long Road and most activity, collectible and robbery trophies</p>
+    </li>
+    <li>
+      <h3>Step 5 — Clean up the one-offs, then the platinum</h3>
+      <p>Mop up the free-roam one-offs (the jet at VCIA, the tank at Mile Zero, the partner robberies), the money and property trophies, and the five trophies whose triggers are still unconfirmed at launch. When the last one pops, <strong>Vice Got a Price!</strong> follows.</p>
+      <p class="step-trophies">Covers: the remaining trophies, then the platinum</p>
+    </li>
+  </ol>
+</section>
+
+<section class="missables" id="missables" aria-label="Missable trophies">
+  <h2>Missable trophies</h2>
+  <p><strong>Potentially 1 of 55.</strong> PowerPyx and GTABase flag only <strong>Positive Mental Attitude</strong> as possibly missable: Lucia&rsquo;s Chapter 1 balcony meditation may be required for it, and it disappears after Chapter 1 — whether it is required is still unconfirmed, so do it to be safe. Every story trophy can&rsquo;t be missed, and nothing on the 100% checklist is missable (GTABase, PowerPyx via GTA Zone).</p>
+  <p>Because there is no mission replay, keep a manual save at the start of every chapter and one before the final mission. The checklist below flags the one trophy to watch.</p>
+</section>
+
+<section class="checklist" id="checklist" aria-label="Trophy checklist">
+  <h2>Checklist — all 55 trophies</h2>
+  <div class="controls">
+    <label class="search">Search <input id="search" type="search" placeholder="Trophy name, mission, keyword…" autocomplete="off"></label>
+    <div class="chips" id="kindChips" role="group" aria-label="Filter by kind">
+      <button type="button" data-kind="all" class="chip active">All 55</button>
+      <button type="button" data-kind="story" class="chip">Story</button>
+      <button type="button" data-kind="missable" class="chip">Missable</button>
+      <button type="button" data-kind="collectibles" class="chip">Collectibles</button>
+      <button type="button" data-kind="activities" class="chip">Activities</button>
+      <button type="button" data-kind="online" class="chip">Online</button>
+    </div>
+    <label>Grade
+      <select id="grade">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+    </label>
+    <label class="toggle"><input id="spoiler" type="checkbox"> Spoiler-safe: hide story trophies until earned</label>
+    <label class="toggle"><input id="hideEarned" type="checkbox"> Hide earned</label>
+    <button id="export" type="button">Export progress</button>
+    <label class="import">Import progress <input id="import" type="file" accept="application/json,.json"></label>
+  </div>
+  <p id="resultCount" class="result-count"></p>
+  <ul id="rows" class="rows"></ul>
+  <p id="emptyState" class="empty-state" hidden></p>
+</section>
+
+<footer id="sources">
+  <h2>Sources &amp; notes</h2>
+  <p>Names, descriptions and grades are the official PlayStation 5 list as published on PlayStation Network, taken 18 November 2026 from Exophase and cross-checked with PSNProfiles and TrueAchievements (Planet GTA 6). The guides are original text written for this entry — they draw on other guides and cite them, never copy them.</p>
+  <ul class="source-list" id="sourceList"></ul>
+  <p class="note">Five trophies (In The Beginning…, Capital Offense, Bad Luck, I Guess, The Truth Is Out There, Ten Pin) had no confirmed unlock method at launch — neither PowerPyx nor GTABase had pinned them down — so their guides say so plainly instead of guessing. Launch-week facts may change as players crack them. There are no online trophies: all 55 are single-player. This guide is fan-made, uses no Rockstar logo, artwork, box art or game screenshots, and is not affiliated with Rockstar Games.</p>
+  <p class="note">Your progress is stored only in this browser (localStorage). Export downloads a JSON file; import reads it back. Nothing is sent anywhere — the app makes no network requests at all.</p>
+</footer>
+
 <script type="module" src="app.js"></script>
 </body>
 </html>
