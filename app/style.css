@@ -1,7 +1,272 @@
-body { font-family: Arial, sans-serif; margin: 24px; color: #222; }
-header { display: flex; justify-content: space-between; align-items: baseline; }
-.controls { display: flex; gap: 16px; margin: 12px 0; align-items: center; }
-.import input { font-size: 12px; }
-table { border-collapse: collapse; width: 100%; }
-th, td { border-bottom: 1px solid #ddd; padding: 6px 8px; text-align: left; vertical-align: top; white-space: pre-line; }
-th { background: #f2f2f2; }
+/* Leonida Trophy Guide — original look: deep night blue, sunset gradient, neon pink/teal.
+   No images, no web fonts, no Rockstar artwork: every visual is plain CSS. */
+
+:root {
+  --bg: #0c1024;
+  --bg2: #131838;
+  --card: #171d42;
+  --card2: #1d2450;
+  --line: #2c3568;
+  --text: #eef0ff;
+  --muted: #aab0d6;
+  --faint: #7e86b3;
+  --pink: #ff2e88;
+  --orange: #ff9a3d;
+  --teal: #2de1c2;
+  --platinum: #cfe8ff;
+  --gold: #f5c542;
+  --silver: #c3cad8;
+  --bronze: #d08a4e;
+  --danger: #ff5d5d;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.55;
+}
+a { color: var(--teal); }
+a:visited { color: #8fd8ff; }
+
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 28px 28px 20px;
+  background:
+    linear-gradient(180deg, rgba(255, 46, 136, 0.28), rgba(255, 154, 61, 0.12) 55%, transparent),
+    linear-gradient(90deg, #1a1140, #0c1024 70%);
+  border-bottom: 3px solid var(--pink);
+}
+.masthead > div:first-child { max-width: 720px; }
+.kicker {
+  margin: 0 0 6px;
+  color: var(--orange);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+h1 {
+  margin: 0 0 10px;
+  font-size: 42px;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+.lede { margin: 0; color: var(--muted); font-size: 17px; max-width: 640px; }
+
+.progress-card {
+  min-width: 260px;
+  padding: 16px 18px;
+  background: rgba(12, 16, 36, 0.75);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.big-number { font-size: 40px; font-weight: 800; line-height: 1; }
+.big-number .of { font-size: 20px; color: var(--muted); font-weight: 600; }
+.bar {
+  height: 10px;
+  margin: 12px 0 8px;
+  background: #0a0d20;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--pink), var(--orange));
+  transition: width 0.25s ease;
+}
+.progress-card p { margin: 4px 0; }
+.grade-line { color: var(--muted); font-size: 14px; }
+.estimate { color: var(--faint); font-size: 13px; }
+
+.views {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--line);
+}
+.views a {
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+.views a:hover { border-color: var(--pink); color: #fff; }
+
+section, footer { padding: 24px 28px; }
+h2 { margin: 0 0 10px; font-size: 26px; }
+.roadmap-intro { color: var(--muted); max-width: 860px; }
+.steps { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 14px; }
+.steps li {
+  padding: 16px 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--pink);
+  border-radius: var(--radius);
+}
+.steps li:nth-child(2) { border-left-color: var(--orange); }
+.steps li:nth-child(3) { border-left-color: var(--teal); }
+.steps li:nth-child(4) { border-left-color: #8fd8ff; }
+.steps li:nth-child(5) { border-left-color: var(--gold); }
+.steps h3 { margin: 0 0 6px; font-size: 18px; }
+.steps .time { color: var(--orange); font-size: 14px; font-weight: 600; }
+.steps p { margin: 6px 0; color: var(--muted); }
+.steps p strong { color: var(--text); }
+.step-trophies { font-size: 13px; color: var(--faint); }
+
+.missables {
+  background: #2a1218;
+  border-top: 1px solid #5a2230;
+  border-bottom: 1px solid #5a2230;
+}
+.missables h2 { color: #ffb3c8; }
+.missables p { max-width: 860px; color: #f3d3dc; }
+.missables strong { color: #fff; }
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  align-items: center;
+  margin: 14px 0 8px;
+  padding: 14px;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.controls label { font-size: 14px; font-weight: 600; color: var(--muted); }
+.controls input[type="search"], .controls select {
+  padding: 7px 10px;
+  background: #0a0d20;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 14px;
+}
+.controls input[type="search"] { width: 260px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  padding: 7px 13px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.chip:hover { border-color: var(--teal); }
+.chip.active { background: var(--pink); border-color: var(--pink); color: #fff; }
+.toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+.toggle input { accent-color: var(--pink); width: 16px; height: 16px; }
+button#export, .controls label.import {
+  padding: 8px 14px;
+  background: var(--teal);
+  color: #06231d;
+  border: 0;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+button#export:hover, .controls label.import:hover { filter: brightness(1.1); }
+.import input { display: none; }
+.result-count { margin: 10px 2px 0; color: var(--faint); font-size: 14px; }
+
+.rows { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 12px; }
+.card {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 4px 14px;
+  padding: 16px 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.card.earned { border-color: var(--teal); background: var(--card2); }
+.card.missable-flag { border-left: 5px solid var(--danger); }
+.card input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  margin: 4px 0 0;
+  accent-color: var(--teal);
+  cursor: pointer;
+}
+.card-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; }
+.card-head h3 { margin: 0; font-size: 18px; }
+.grade {
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #10142a;
+}
+.grade.platinum { background: var(--platinum); }
+.grade.gold { background: var(--gold); }
+.grade.silver { background: var(--silver); }
+.grade.bronze { background: var(--bronze); }
+.tag {
+  padding: 2px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.tag.hidden-tag { border-color: #6b5a8f; color: #cdbcf5; }
+.tag.missable-tag { border-color: var(--danger); color: #ffb3b3; font-weight: 800; }
+.tag.safe-tag { border-color: #2f6b52; color: #9fe8c9; }
+.tag.count-tag { border-color: var(--orange); color: #ffd2a8; }
+.official { margin: 6px 0 0; color: var(--muted); font-style: italic; }
+.official-label { color: var(--faint); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-style: normal; }
+.guide { margin: 8px 0 0; }
+.sources { margin: 8px 0 0; font-size: 13px; color: var(--faint); }
+.sources a { margin-right: 12px; white-space: nowrap; }
+.spoiler-mask {
+  margin: 6px 0 0;
+  padding: 10px 12px;
+  background: #0a0d20;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: var(--faint);
+}
+.empty-state {
+  padding: 22px;
+  text-align: center;
+  color: var(--muted);
+  background: var(--card);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+}
+
+footer { background: var(--bg2); border-top: 1px solid var(--line); }
+footer p { max-width: 860px; color: var(--muted); }
+.source-list { max-width: 860px; }
+.source-list li { margin: 4px 0; }
+.note { font-size: 14px; }
+
+@media (max-width: 760px) {
+  h1 { font-size: 30px; }
+  section, footer, .masthead, .views { padding-left: 16px; padding-right: 16px; }
+  .controls input[type="search"] { width: 100%; }
+  .card { grid-template-columns: 30px 1fr; }
+}
